@@ -34,6 +34,15 @@ nacos:
 #      password: password
 #      param: characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false
 
+#    type: postgresql
+#    db:
+#      host: localhost
+#      name: nacos
+#      port: 5432
+#      username: usernmae
+#      password: password
+#      param: connectTimeout=1000&socketTimeout=3000&ssl=false
+
 persistence:
   enabled: false
   data:
