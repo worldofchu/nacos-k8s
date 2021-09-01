@@ -1,0 +1,18 @@
+{{- if or (eq .Values.nacos.storage.type "mysql") (eq .Values.nacos.storage.type "postgresql")}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nacos-cm
+data:
+  {{- with .Values.nacos.storage.db }}
+  mysql.db.host: {{ quote .host}}
+  mysql.db.name: {{ quote .name }}
+  mysql.port: {{ quote .port | default 3306}}
+  mysql.user: {{ quote .username }}
+  mysql.password: {{ quote .password }}
+  mysql.param: {{ quote .param | default "characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false" }}
+  {{- end }}
+  {{- end }}
+
+
+

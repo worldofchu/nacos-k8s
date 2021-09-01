@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nacosingressroute
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`nacos.pf.com`) && PathPrefix(`/`)
+    kind: Rule
+    services:
+    - name: nacos-cs
+      port: 8848
+      namespace: nacos
